@@ -49,7 +49,7 @@ export const userLoginAction = (data) => {
             // let a = ShowUserCartAction(data);
             // console.log(a);
             history.push('/home');
-           window.location.reload();
+            window.location.reload();
 
         } catch (error) {
             console.log(error.response)

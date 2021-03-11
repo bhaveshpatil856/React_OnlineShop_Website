@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "../node_modules/font-awesome/css/font-awesome.css";
 import {createStore,applyMiddleware} from 'redux';
 import Thunk from 'redux-thunk';
 import reducers from './store/index';

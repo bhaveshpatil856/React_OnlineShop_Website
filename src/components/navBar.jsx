@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {Navbar, Nav} from 'react-bootstrap';
 import { connect } from "react-redux";
-import {Link} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 import { navigateToCart } from "../actions/product";
 import {UserLogged,Logout, ShowUserCartAction} from '../actions/user';
 
@@ -40,32 +40,33 @@ class NavigationBar extends Component{
                 {
                     this.props.loggedIn ?
                     <Nav inline="true">
-                        <div className="row">
-                    <div className="col" >
-                        <span className="text-white">Hello,{this.props.loggedIn.user.firstname} {this.props.loggedIn.user.lastname}</span>
+                        {/* <div className="row"> */}
+                    <center>
+                        <Navbar.Brand className="text-white">Hello, {this.props.loggedIn.user.firstname} {this.props.loggedIn.user.lastname}</Navbar.Brand>
                         {/* <Nav.Link as={Link} to="/cart" >Cart</Nav.Link> */}
-                    </div>
-                    <div className="col-md-2" inline="true">    
-                    <Nav.Link 
+                        </center>
+                    
+                    <button type='button' className='btn btn-dark'
                         onClick={this.navCart}>
-                    Cart 
-                            {/* {
-                                console.log(this.props.cartData.length)
+                    <i className="fa fa-cart-plus fa-2x" aria-hidden="true"></i>
+                            {
+                                // console.log(this.props.cartData)
+                                this.props.cartData.length > 0 ?
                                 <span className="badge badge-light">
                                     {this.props.cartData.length}
                                 </span>
-                                :                                this.props.cartData.length > 0 ?
-
+                                :
                                 null
-                            } */}
-                        </Nav.Link>
-                        </div>
+                        }
+                        
+                        </button>
+                        
                         <div className="col">
                         <Nav.Link 
                             onClick={()=>this.props.Logout()}
                         >
                             LOGOUT</Nav.Link>
-                        </div>
+                        {/* </div> */}
                         </div>
                     </Nav>
 
@@ -90,10 +91,10 @@ class NavigationBar extends Component{
 }
 
 const mapStateToProps = (state) => {
-    // console.log(state.login.currentUserData);
+    console.log(state);
     // return state
     return {
-        cartData:state.cartItem.storedata,
+        cartData:state.showUserCart.storedata,
         loggedIn:state.login.currentUserData};
 }
 
