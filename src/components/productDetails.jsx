@@ -10,30 +10,38 @@ class ProductDetails extends Component{
         super();
         this.state={
             productId:"",
-            userEmail:""
+            userEmail:''
         }
         this.validator = new SimpleReactValidator({autoForceUpdate: this});
     }
 
     addToUserCart = () => {
-        console.log(this.props.productItem.data._id);
+        // console.log(this.props)
+        // console.log(this.validator);
         // e.preventDefault();
         if(this.validator.allValid()){
-        let item = {
-            productId:  this.props.productItem.data._id , 
-            userLogin: {
-                userEmail: this.props.user.user.userLogin.userEmail
-            },
-            quantity: 1
-        };
-        this.props.AddToUserCartAction(item);
-        // console.log(a);
-        // this.props.addToCartAction(this.props.productItem.data._id);
+
+            if(this.props.user){
+
+                let item = {
+                    productId:  this.props.productItem.data._id , 
+                    userLogin: {
+                        userEmail: this.props.user.user.userLogin.userEmail
+                    },
+                    quantity: 1
+                };
+                this.props.AddToUserCartAction(item);
+                // console.log(a);
+                // this.props.addToCartAction(this.props.productItem.data._id);
+                
+                // this.props.ShowUserCartAction(item);
         
+                this.props.history.push('/cart');
+            }
+            else{
+                this.props.history.push('/login');
+            }
 
-        //this.props.ShowUserCartAction(item);
-
-        this.props.history.push('/cart');
         }
         else{
             this.validator.showMessages();
@@ -107,6 +115,7 @@ class ProductDetails extends Component{
 
 const mapStateToProps = (state) =>{
     // console.log(state.login.currentUserData);
+    // console.log(state)
     return {
         user: state.login.currentUserData,
         loading: state.productId.loading, 

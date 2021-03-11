@@ -16,8 +16,6 @@ class Home extends Component{
     
     render(){
 
-        console.log(global.globaluser);
-
        // console.log(this.props.items);
         if(!this.props.items) { return <h1>LOADING.....</h1>}
         return(

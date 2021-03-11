@@ -1,6 +1,6 @@
 
-import { FETCH_ALL_PRODUCT, ERROR, PRODUCT_DATA_BY_ID, ADD_TO_CART, CART_ERROR, LOADING, ADD_QUANTITY, REMOVE_QUANTITY, REMOVE_FROM_CART, NAVIGATE_CART } from "../actions/product.type"
-import { addCartUtility ,addQuantityUtility,removeQuantityUtility } from "../shared/cartUtility";
+import { FETCH_ALL_PRODUCT, ERROR, PRODUCT_DATA_BY_ID, ADD_TO_CART, CART_ERROR, LOADING, REMOVE_FROM_CART, NAVIGATE_CART } from "../actions/product.type"
+import { addCartUtility } from "../shared/cartUtility";
 
 export const getProductReducer = (state=[], action) => {
     switch(action.type){

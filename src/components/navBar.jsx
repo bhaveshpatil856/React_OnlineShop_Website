@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {Navbar, Nav} from 'react-bootstrap';
 import { connect } from "react-redux";
-import {Link, NavLink} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import { navigateToCart } from "../actions/product";
 import {UserLogged,Logout, ShowUserCartAction} from '../actions/user';
 

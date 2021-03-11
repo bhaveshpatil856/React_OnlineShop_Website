@@ -2,7 +2,6 @@ import React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import { AddQuantity, removeItemAction, RemoveQuantity } from '../actions/product';
-import { ShowUserCartAction } from '../actions/user';
 
 
 class CartItem extends Component {
