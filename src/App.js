@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { Route, Switch } from "react-router-dom";
+import Home from "./components/home";
+import Login from "./components/login";
+import NavigationBar from './components/navBar'
+import ProductDetails from "./components/productDetails";
+import Register from "./components/register";
+import Cart from "./components/cart"
+import PrivateRoute from "./shared/helper/private.route";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component{
+render(){
+    return (
+    <React.Fragment>
+        <NavigationBar/>
+        <Switch>
+        <Route path="/" exact component={Home}/>
+        <Route path="/home" exact component={Home}/>
+        <Route path="/Login" exact component={Login }/>
+        <Route path="/register" exact component={Register}/>
+        <Route path='/findProductById/:id' exact component={ProductDetails}/>
+        <PrivateRoute path="/cart" exact component={Cart}/>
+
+        </Switch>
+    </React.Fragment>
+    )
+}
 }
 
 export default App;
